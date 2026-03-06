@@ -1,0 +1,45 @@
+<section th:replace="~{fragments/layout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+    <main>
+        <div class="hero">
+            <div class="overlay"></div>
+
+            <div class="hero-content">
+                <p class="hero-slogan">
+                    Transformando diversão em momentos inesquecíveis
+                </p>
+
+                <img th:src="@{/images/logo.png}" alt="Solê Recreação" class="hero-logo">
+
+                <a href="https://wa.me/5512982019308?text=Olá%20gostaria%20de%20um%20orçamento."
+                   target="_blank" class="btn">
+                    Solicitar Orçamento
+                </a>
+
+                <div class="stats-card-mini">
+                    <div class="mini-item">
+                        <strong>+100</strong>
+                        <span>Festas</span>
+                    </div>
+                    <div class="mini-item border-side">
+                        <strong>+500</strong>
+                        <span>Crianças</span>
+                    </div>
+                    <div class="mini-item">
+                        <strong>5/5</strong>
+                        <span>Google ⭐</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="home-gallery-preview">
+            <h2>Um pouquinho da nossa bagunça...</h2>
+            <div class="preview-grid">
+                <img th:src="@{/images/foto1.jpeg}" alt="Diversão Solê">
+                <img th:src="@{/images/foto2.jpeg}" alt="Pintura Facial">
+                <img th:src="@{/images/foto3.jpeg}" alt="Recreação">
+            </div>
+            <a th:href="@{/galeria}" class="btn">Ver Galeria Completa</a>
+        </section>
+    </main>
+</section>

@@ -1,0 +1,22 @@
+<section th:replace="~{fragments/layout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+    <main>
+        <div class="hero" style="height: 50vh;">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Galeria</h1>
+                <p class="slogan">Faça dessa galeria de fotos a sua também</p>
+            </div>
+        </div>
+
+        <div class="main-section">
+            <div class="gallery-grid">
+                <img th:src="@{/images/foto1.jpeg}" alt="Recreação Solê">
+                <img th:src="@{/images/foto2.jpeg}" alt="Recreação Solê">
+                <img th:src="@{/images/foto3.jpeg}" alt="Recreação Solê">
+                <img th:src="@{/images/foto4.jpg}" alt="Recreação Solê">
+                <img th:src="@{/images/foto5.jpg}" alt="Recreação Solê">
+                <img th:src="@{/images/foto6.jpg}" alt="Recreação Solê">
+            </div>
+        </div>
+    </main>
+</section>

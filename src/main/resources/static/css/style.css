@@ -1,0 +1,342 @@
+/* ================= RESET & BASE ================= */
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+    background-color: #f4f7f6;
+    background-image: radial-gradient(#d1d1d1 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+    background-attachment: fixed;
+}
+
+html{ scroll-behavior:smooth; }
+
+/* ================= NAVBAR (FIXA) ================= */
+header{
+    position:fixed; top:0; width:100%; padding:15px 50px;
+    background:rgba(0,0,0,0.6); backdrop-filter:blur(10px);
+    display:flex; justify-content:space-between; align-items:center;
+    z-index:1000;
+}
+.logo img{ width:60px; height:auto; }
+nav{ display:flex; gap:25px; }
+nav a{ text-decoration:none; color:white; font-weight:600; transition:.3s; }
+nav a:hover{ color:#ffd60a; }
+
+/* ================= HERO (HOME) ================= */
+.hero{
+    width: 100%; height: 100vh;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    background-image: url("/images/wallpaperRec.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align:center; color:white;
+}
+
+.overlay{ position:absolute; inset:0; background:rgba(0,0,0,.55); }
+
+.hero-content{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* O gap controla a distância entre logo, slogan e botão */
+    gap: 15px;
+}
+
+.hero-logo{
+    width: 380px; /* Tamanho reduzido para não tampar tudo */
+    max-width: 80%;
+    height: auto;
+    margin: 0; /* Removendo margens negativas problemáticas */
+}
+
+.hero-slogan {
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 500;
+    max-width: 600px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    margin: 0; /* Mantém o alinhamento limpo */
+}
+
+/* ================= BOTÕES ================= */
+.btn {
+    display: inline-block; padding: 12px 30px; border-radius: 30px;
+    background: #ff6b00; color: white; text-decoration: none;
+    font-weight: 600; transition: .3s; border: none; cursor: pointer;
+}
+.btn:hover { background: #ffd60a; color: #000; }
+
+/* ================= CARDS E SEÇÕES (Páginas Internas) ================= */
+.main-section {
+    position: relative;
+    z-index: 10;
+    margin-top: -150px;
+    padding-bottom: 50px;
+}
+
+.cards-container {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px;
+}
+
+.card {
+    background: white; color: #333; padding: 30px; width: 300px;
+    border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: .3s;
+}
+.card:hover { transform: translateY(-10px); }
+.card h2, .card h3 { color: #ff6b00; margin-bottom: 15px; }
+
+/* ================= GALERIA ================= */
+.gallery-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; max-width: 1200px; margin: 0 auto; padding: 20px;
+}
+.gallery-grid img {
+    width: 100%; height: 280px; object-fit: cover;
+    border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ================= DECORAÇÃO FIXA ================= */
+.icones-fixos {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.2; /* Voltei para 0.2 para ser sutil */
+}
+
+.icones-fixos .icone {
+    position: absolute;
+    width: 60px; height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* IMPORTANTE: Adicione a extensão .png ou .svg conforme seus arquivos */
+.icon-1 { top: 80%; left: 5%; transform: rotate(-15deg); background-image: url("/images/icon1.png"); }
+.icon-2 { top: 95%; left: 8%; transform: rotate(10deg); background-image: url("/images/icon2.png"); }
+.icon-3 { top: 65%; right: 5%; transform: rotate(20deg); background-image: url("/images/icon3.png"); }
+.icon-4 { top: 85%; right: 7%; transform: rotate(-10deg); background-image: url("/images/icon4.png"); }
+.icon-5 { top: 50%; left: 5%; transform: rotate(-15deg); background-image: url("/images/icon5.png"); }
+.icon-6 { top: 40%; left: 8%; transform: rotate(10deg); background-image: url("/images/icon6.png"); }
+.icon-7 { top: 75%; right: 5%; transform: rotate(20deg); background-image: url("/images/icon7.png"); }
+.icon-8 { top: 25%; right: 7%; transform: rotate(-10deg); background-image: url("/images/icon8.png"); }
+.icon-9 { top: 10%; left: 5%; transform: rotate(-15deg); background-image: url("/images/icon9.png"); }
+.icon-10 { top: 35%; right: 8%; transform: rotate(10deg); background-image: url("/images/icon10.png"); }
+
+
+/* ================= MOBILE ================= */
+.menu-toggle { display: none; font-size: 28px; color: white; cursor: pointer; }
+
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    nav {
+        position: absolute; top: 70px; right: -100%;
+        background: rgba(0,0,0,0.95); width: 250px; height: 100vh;
+        flex-direction: column; padding: 40px; transition: 0.4s;
+    }
+    nav.active { right: 0; }
+    header { padding: 15px 25px; }
+    .hero-logo { width: 280px; }
+    .icones-fixos { display: none; }
+}
+
+/* ================= FOOTER ================= */
+.site-footer {
+    background-color: #222;
+    color: white;
+    padding: 50px 0 20px;
+    margin-top: 50px;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.footer-logo {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.footer-info, .footer-links, .footer-social {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-links a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffd60a;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons img {
+    width: 30px;
+    filter: invert(1); /* Deixa os ícones brancos para o fundo escuro */
+    transition: 0.3s;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: #888;
+}
+
+/* ================= ANIMAÇÃO FLUTUANTE (Ícones) ================= */
+@keyframes flutuar {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Aplicando a animação aos seus ícones fixos */
+.icones-fixos .icone {
+    animation: flutuar 4s ease-in-out infinite;
+}
+/* Variar o tempo para não subirem todos juntos */
+.icon-2, .icon-4, .icon-6, .icon-8, .icon-10 { animation-delay: 1s; animation-duration: 5s; }
+
+/* ================= CONTADOR DE DIVERSÃO ================= */
+.stats-section {
+    padding: 60px 20px;
+    background: white;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    flex: 1;
+    min-width: 200px;
+}
+
+.stat-item h2 {
+    font-size: 48px;
+    color: #ff6b00; /* Laranja Solê */
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-weight: 600;
+    color: #555;
+}
+
+/* ================= PRÉVIA DA GALERIA NA HOME ================= */
+.home-gallery-preview {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.home-gallery-preview h2 {
+    margin-bottom: 30px;
+    color: #222;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto 30px;
+}
+
+.preview-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border: 5px solid white;
+    transition: 0.3s;
+}
+
+.preview-grid img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* Container do Card Mini */
+.stats-card-mini {
+    display: flex;
+    background: rgba(255, 255, 255, 0.15); /* Branco bem transparente */
+    backdrop-filter: blur(5px); /* Efeito de vidro */
+    padding: 10px 20px;
+    border-radius: 50px; /* Formato de pílula para combinar com o botão */
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    gap: 15px;
+}
+
+/* Itens individuais dentro do card */
+.mini-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.mini-item strong {
+    font-size: 16px;
+    color: #ffd60a; /* Amarelo Solê para destacar o número */
+}
+
+.mini-item span {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* Divisória sutil entre os itens */
+.border-side {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0 15px;
+}
+
+/* Ajuste na Logo e Texto para subirem um pouco */
+.hero-content {
+    gap: 10px; /* Diminui o espaço entre os elementos para tudo caber melhor */
+    transform: translateY(-20px); /* Sobe levemente todo o conjunto */
+}
