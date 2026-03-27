@@ -4,7 +4,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Estágio de Execução
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk-alpine
 COPY --from=build /target/*.jar app.jar
 # O Render exige que a aplicação use a porta que ele definir
 EXPOSE 8080
